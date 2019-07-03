@@ -1,0 +1,2 @@
+# hellogo
+first go program
