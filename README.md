@@ -1,2 +1,3 @@
 # hellogo
-first go program
+minimize multistage dockerzise go program
+
