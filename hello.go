@@ -12,6 +12,8 @@ func reset (){
   fmt.Println("Select :  Esc exit.")
   fmt.Println("1. Hello World.")
   fmt.Println("2. Triangle.")
+  fmt.Println("3. gobrain example.")
+  fmt.Println("4. func scope example.")
 }
 
 
@@ -49,8 +51,32 @@ func p3(){
 
   inputs := []float64{1,1}
   fmt.Println("{1,1}=>", ff.Update(inputs))
+}
 
+func p4(){
+  add := func(a,b int) int {
+    return a+b;
+  }
+  fmt.Println("add(3,4)=", add(3,4))
+  foo := scope()
+  fmt.Println("scope:", foo())
+  varOne  , varTwo := outer()
+  fmt.Println("outer:", varOne(),varTwo)
+}
 
+func scope() func() int {
+  outerVar := 42
+  foo := func() int { return outerVar }
+  return foo
+}
+
+func outer () (func() int , int) {
+  outerVar := 2
+  inner := func() int {
+    outerVar += 99
+    return outerVar
+  }
+  return inner, outerVar
 }
 
 func main() {
@@ -77,6 +103,8 @@ func main() {
               p2()
             case '3':
               p3()
+            case '4':
+              p4()
             case 'q':
               break keyPressLoop
             }
