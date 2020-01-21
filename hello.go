@@ -9,7 +9,7 @@ import (
 
 func reset (){
   term.Sync()
-  fmt.Println("Select :  Esc exit.")
+  fmt.Println("Select :  Esc or q exit.")
   fmt.Println("1. Hello World.")
   fmt.Println("2. Triangle.")
   fmt.Println("3. gobrain example.")
@@ -21,8 +21,7 @@ func p1(){
   fmt.Println("Hello, World!")
 }
 
-func p2() {
-  s := 5
+func p2(s int) {
   for i := 0 ; i < s ; i++ {
     for j := 0 ; j < s - i ; j++ {
       fmt.Print(" ")
@@ -100,7 +99,7 @@ func main() {
             case '1':
               p1()
             case '2':
-              p2()
+              p2(5)
             case '3':
               p3()
             case '4':
